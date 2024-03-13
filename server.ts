@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import crypto from 'crypto';
 import port from './configurationPort';
+import mySecretSize from './configSecretSize';
 
 const app = express();
 
@@ -12,7 +13,7 @@ const secrets: Map<string, { message: string }> = new Map();
 
 // Aleatory value function
 function newMessage(): string {
-    return crypto.randomBytes(32).toString('hex');
+    return crypto.randomBytes(mySecretSize.secretSize).toString('hex');
 }
 
 let secretKey: string;
