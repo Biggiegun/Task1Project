@@ -1,19 +1,18 @@
-const express = require('express');
-const Response_ = require('express');
-const Request_ = require('express');
-const bodyParser = require('body-parser');
-const crypto_ = require('crypto');
+import express from 'express';
+import bodyParser from 'body-parser';
+import crypto from 'crypto';
+import port from './configurationPort';
 
 const app = express();
 
 app.use(bodyParser.json());
 
 // Map structure
-let secrets: Map<string, { message: string }> = new Map();
+const secrets: Map<string, { message: string }> = new Map();
 
 // Aleatory value function
 function newMessage(): string {
-    return crypto_.randomBytes(32).toString('hex');
+    return crypto.randomBytes(32).toString('hex');
 }
 
 let secretKey: string;
@@ -34,7 +33,7 @@ app.post('/api/secrets', (req, res) => {
 let excecuted = true;
 app.get(`/api/secret/:secretKey`, (req, res) => {
     secretKey = req.params['secretKey'];
-    let secretMessage: string = secrets[secretKey];
+    const secretMessage: string = secrets[secretKey];
 
     if (!excecuted) {
         res.status(500).json({ message: "Not found, or already read !!!" });
@@ -46,7 +45,7 @@ app.get(`/api/secret/:secretKey`, (req, res) => {
 });
 
 // Server logic test....
-const port = process.env.PORT || 3000;
+//const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}, my friend!!`);
