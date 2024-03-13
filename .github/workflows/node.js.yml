@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      #- run: npm ci
+      - run: npm ci
+      # run ESLint & Prettier
+      - run: npm run lint
       #- run: npm run build --if-present
       #- run: npm test --if-present
