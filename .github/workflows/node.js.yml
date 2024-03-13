@@ -26,7 +26,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci
-      # run ESLint & Prettier
+      # run ESLint
       - run: npx eslint .
+      - run: npx eslint --format html . > report.html
       #- run: npm run build --if-present
       #- run: npm test --if-present
