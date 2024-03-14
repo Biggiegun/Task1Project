@@ -1,27 +1,17 @@
 import request from 'supertest';
 import { expect, jest, test } from '@jest/globals';
-const request = require('supertest');
+const request = require("supertest");
 const app = require('../app');
 
-let secretKey = "a";
 
-describe('Default Get response', () => {
+describe('Post Method Response', () => {
 
-    test('Get Method Should respond an empty body', async () => {
-        const response = await request(app).get(`/api/secret/${secretKey}`);
+    test('Post message mock', async () => {
+        const response = await request(app).post(`/api/secrets`).send({
+            message : "Hello World"
+        })
         // expect(response.body).toEqual({});
-        expect(response.statusCode).toBe(404);
+        expect(response.statusCode).toBe(201);
     });
 
 })
-
-// describe('Server launched', () => {
-
-//     let testPort = 3000;
-
-//     test('Server is working', async () => {
-//         const state = await request(app).listen(testPort, () => {
-//             expect(state).toBe
-//         });
-//     });
-// })
