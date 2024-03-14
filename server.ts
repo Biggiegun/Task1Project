@@ -1,6 +1,6 @@
-const app = require('./app');
-import port from './configurationPort';
+import app from "./src/presentation/MessageRoute";
+import * as data from "./config.json";
 
-app.listen(port, async () => {
-    console.log(`Server is running on port ${port}, my friend!!`);
+app.listen(data.portNumber, async () => {
+    console.log(`Server is running on port ${data.portNumber}, my friend!!`);
 });
