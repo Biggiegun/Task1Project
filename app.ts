@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import crypto from 'crypto';
 import port from './configurationPort';
 import mySecretSize from './configSecretSize';
+import { Server } from 'https';
 
 const app = express();
 
@@ -45,9 +46,9 @@ app.get(`/api/secret/:secretKey`, (req, res) => {
     }
 });
 
-// Server logic test....
-//const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
+app.listen(port, async () => {
     console.log(`Server is running on port ${port}, my friend!!`);
 })
+
+module.exports = Server;
+export default newMessage;
