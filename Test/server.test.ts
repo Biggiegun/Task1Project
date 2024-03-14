@@ -1,7 +1,6 @@
-import { expect, jest, test } from '@jest/globals';
+import { expect, test } from '@jest/globals';
 import request from 'supertest';
 import app from "../src/presentation/MessageRoute"
-const request = require("supertest");
 
 
 

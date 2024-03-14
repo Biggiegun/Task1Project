@@ -1,6 +1,6 @@
 class SecretMessageModel{
-    constructor(readonly message : String){
-    };
+    constructor(readonly message : string){
+    }
 }
 
 export default SecretMessageModel;

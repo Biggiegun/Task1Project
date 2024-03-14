@@ -30,5 +30,7 @@ jobs:
       - run: npx eslint .
       # generate report
       - run: npx eslint --format html . > report.html
+      #code coverage
+      - run: npm test  --forceExit --coverage
       #- run: npm run build --if-present
       #- run: npm test --if-present

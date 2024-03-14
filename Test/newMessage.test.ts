@@ -1,5 +1,4 @@
-// // newMessage test
-import { expect, jest, test } from '@jest/globals';
+import { expect, test } from '@jest/globals';
 import GenerateRandomString from "../src/Infrastructure/StoreSecretMessage";
 
 // const myFunction = jest.mock("../server", () => jest.fn());
