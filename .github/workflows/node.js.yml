@@ -34,6 +34,6 @@ jobs:
       - run: npm test  --forceExit --coverage
       #- run: npm run build --if-present
       - name: Build the Docker image
-      - run: docker build . --file Dockerfile --tag myApp:1.0 .
+        run: docker build . --file Dockerfile --tag myApp:1.0 .
       - name: Display the image
-      - run: docker images
+        run: docker images
